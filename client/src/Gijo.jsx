@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Gijo() {
   const [dataGijo, setDataGijo] = useState({});
 
   async function fetchData() {
     try {
-      const { data } = await axios.get("http://localhost:4000/api/gijo");
+      const { data } = await axios.get("http://localhost:4000/api/user/gijo");
       setDataGijo(data);
       console.log(data);
       console.log(dataGijo);
@@ -14,7 +14,9 @@ function Gijo() {
       console.log(error, "Error und poi nokk");
     }
   }
-  fetchData();
+  useEffect(() => {
+    fetchData();
+  });
   return (
     <>
       <h1>Page 2</h1>

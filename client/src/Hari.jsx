@@ -1,10 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function Hari() {
   const [dataHari, setDataHari] = useState({});
   async function fetchData() {
     try {
-      const { data } = await axios.get("http://localhost:4000/api/hari");
+      const { data } = await axios.get("http://localhost:4000/api/user/hari");
 
       setDataHari(data);
       console.log(dataHari);
@@ -12,7 +12,10 @@ function Hari() {
       console.log(error, "Error und poi nokk");
     }
   }
-  fetchData();
+
+  useEffect(() => {
+    fetchData();
+  });
   return (
     <>
       <h1>Page 3</h1>

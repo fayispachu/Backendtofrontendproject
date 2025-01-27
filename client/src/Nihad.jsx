@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Nihad() {
   const [dataNihad, setDataNihad] = useState({});
 
   async function fetchData() {
     try {
-      const { data } = await axios.get("http://localhost:4000/api/nihad");
+      const { data } = await axios.get("http://localhost:4000/api/user/nihad");
       setDataNihad(data);
       console.log(data);
       console.log(dataNihad);
@@ -14,7 +14,9 @@ function Nihad() {
       console.log(error, "Error und poi nokk");
     }
   }
-  fetchData();
+  useEffect(() => {
+    fetchData();
+  });
 
   return (
     <>
